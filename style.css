@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: #333;
+    color: rgb(88, 171, 243);
+    font-size: 1.2rem;
+}
+input, button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    background-color: rgb(88, 171, 243);
+}
+
+button:hover{
+    background-color: rgb(1, 35, 65);
+    padding: 15px;
+    color:white;
+    box-shadow: 0px 8px 15px rgba(5, 135, 241, 0.3); /* Adiciona sombra */
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1b1b1b;
+    color: rgb(88, 171, 243);
+    text-align: center;
+    padding: 10px 0;
+}
