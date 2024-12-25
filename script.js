@@ -1,30 +1,37 @@
 function convertToDecimal() {
     const hexInput = document.getElementById('hexInput').value.trim(); // Obtém e limpa o valor do input
     const resultadoElement = document.getElementById('resultado'); // Elemento para mostrar o resultado
+    const errorSound = document.getElementById('errorSound');  // Referência ao som de erro
 
-    // Regex para verificar se o valor é um hexadecimal válido
+
     if (/^[0-9A-Fa-f]+$/.test(hexInput)) {
         const decimalValue = parseInt(hexInput, 16); // Converte de hexadecimal para decimal
-        resultadoElement.textContent = `${decimalValue}` ; // Exibe o resultado
-        resultadoElement.style.color = "rgb(88, 171, 243)"; // Define uma cor para o texto válido
+        resultadoElement.textContent = `Resultado: ${decimalValue}`;
 
-        // Feedback visual no input
-        document.getElementById('hexInput').classList.remove('error');
-        document.getElementById('hexInput').classList.add('success');
+        // Toca o som de sucesso e garante que o som de erro não toque
+        if (!successSound.paused) {
+            successSound.pause();
+            successSound.currentTime = 0; // Reseta o som de sucesso
+        }
+        successSound.play();  // Toca o som de sucesso
 
-        // Limpa o campo de entrada
-        document.getElementById('hexInput').value = "";
     } else {
-        // Mensagem de erro
+        // Se o valor não for válido, mostra a mensagem de erro
         resultadoElement.textContent = "Por favor, insira um valor hexadecimal válido.";
-        resultadoElement.style.color = "red"; // Define uma cor de erro
 
-        // Feedback visual no input
-        document.getElementById('hexInput').classList.remove('success');
-        document.getElementById('hexInput').classList.add('error');
+        // Pausa qualquer som que esteja tocando (sucesso ou erro)
+        if (!successSound.paused) {
+            successSound.pause();
+            successSound.currentTime = 0; // Reseta o som de sucesso
+        }
+
+        // Toca o som de erro
+        if (!errorSound.paused) {
+            errorSound.pause();
+            errorSound.currentTime = 0; // Reseta o som de erro
+        }
+        errorSound.play();  // Toca o som de erro
     }
-
-
 }
 
 
@@ -39,6 +46,7 @@ function playSound() {
     const sound = document.getElementById('clickSound');
     sound.play();
 }
+
 
 
 
