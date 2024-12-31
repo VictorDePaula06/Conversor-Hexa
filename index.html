@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor Hexadecimal para Decimal</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <h1>Conversor de Hexadecimal para Decimal</h1>
     <form id="converterForm" onsubmit="return false;">
@@ -16,9 +18,18 @@
     <h2 id="resultado"></h2>
     <button id="copyButton">Copiar Resultado</button>
 
+    <div class="datePay">
+        <h2>Senha Pay com fuso (-3) </h2>
+        <button id="horaPay" onclick="copiar();"></button>
+    </div>
+    <div class="datePay">
+        <h2>Senha Pay sem fuso </h2>
+        <button id="horaPay2" onclick="copiar();"></button>
+    </div>
+
     <audio id="successSound" src="sound.mp4"></audio>
     <audio id="errorSound" src="erro.mp3"></audio>
-    
+
 
 
     <footer>
@@ -27,4 +38,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
