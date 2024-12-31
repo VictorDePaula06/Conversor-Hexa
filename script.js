@@ -34,7 +34,38 @@ function convertToDecimal() {
     }
 }
 
+function pegarHora() {
+    var data = new Date();
+    var hora = data.getHours();
+    var ano = data.getFullYear();
+    var mes = data.getMonth() + 1;
+    var dia = data.getDate();
 
+    var horaPay = ano - dia - mes - hora - 3;
+    var horaPay2 = ano - dia - mes - hora;
+
+   
+    document.getElementById('horaPay').innerHTML = horaPay;
+    document.getElementById('horaPay2').innerHTML = horaPay2;
+}
+
+
+// Chama a função 'pegarHora' imediatamente e a cada segundo para atualizar a hora
+setInterval(pegarHora, 1000);
+
+document.getElementById('horaPay').addEventListener('click', () => {
+    const horaPayText = document.getElementById('horaPay').textContent
+    navigator.clipboard.writeText(horaPayText.replace());
+    alert('Senha copiada Chefia')
+
+})
+
+document.getElementById('horaPay2').addEventListener('click', () => {
+    const horaPay2Text = document.getElementById('horaPay2').textContent
+    navigator.clipboard.writeText(horaPay2Text.replace());
+    alert('Senha copiada Chefia')
+
+})
 
 document.getElementById('copyButton').addEventListener('click', () => {
     const resultadoText = document.getElementById('resultado').textContent;
